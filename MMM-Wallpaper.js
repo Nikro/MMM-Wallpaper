@@ -56,7 +56,7 @@ Module.register("MMM-Wallpaper", {
     }
 
     if (self.config.fillRegion) {
-      self.content.className = "content-fill";
+      self.content.className = "content-fill loading";
     } else {
       self.content.className = "content";
       self.content.style.width = self.config.width;
@@ -219,6 +219,7 @@ Module.register("MMM-Wallpaper", {
       self.nextImageElement.onload = null;
       self.content.removeChild(self.nextImageElement);
       self.nextImageElement = null;
+      self.content.className = self.content.className.replace('loading', '');
     }
 
     self.imageIndex = (self.imageIndex + 1) % self.images.length;
