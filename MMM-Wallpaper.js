@@ -219,13 +219,14 @@ Module.register("MMM-Wallpaper", {
       self.nextImageElement.onload = null;
       self.content.removeChild(self.nextImageElement);
       self.nextImageElement = null;
-      self.content.className = self.content.className.replace('loading', '');
     }
 
     self.imageIndex = (self.imageIndex + 1) % self.images.length;
 
     const nextImageData = self.images[self.imageIndex];
     if (nextImageData !== null) {
+      self.content.className = self.content.className.replace('loading', '');
+
       self.nextImageElement = self.createImage(nextImageData);
       self.content.insertBefore(self.nextImageElement, self.title);
     }
